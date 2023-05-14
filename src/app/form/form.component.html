@@ -1,0 +1,53 @@
+<div class="example-container">
+    <form [formGroup]="options">
+        <h2>&nbsp;&nbsp;&nbsp;&nbsp;Add New Assignment</h2>
+  
+      <div class="example-form-fields">
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-form-field appearance="fill" [floatLabel]="getFloatLabelValue()">
+          <mat-label>Enter Assignment Name</mat-label>
+          <input matInput placeholder="Name">
+        </mat-form-field>
+        <br>
+      </div>
+      <div class="example-form-fields">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-form-field appearance="fill" [floatLabel]="getFloatLabelValue()">
+          <mat-label>Subject</mat-label>
+          <input matInput placeholder="">
+        </mat-form-field>
+      </div>
+      
+      
+      <div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
+      <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>First campaign</mat-label>
+        <mat-date-range-input
+          [formGroup]="campaignOne"
+          [rangePicker]="campaignOnePicker"
+          [comparisonStart]="campaignTwo.value.start"
+          [comparisonEnd]="campaignTwo.value.end">
+          <input matStartDate placeholder="Start date" formControlName="start">
+          <input matEndDate placeholder="End date" formControlName="end">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+        <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+      </mat-form-field>
+      
+    </div> 
+      <span class="example-spacer"></span>
+      <div class="example-button-row">
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-button color="primary">Submit</button>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-button color="primary">Reset</button>
+      </div>
+    </form>
+  </div>
+  
