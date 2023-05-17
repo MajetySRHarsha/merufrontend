@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageheaderComponent } from './pageheader/pageheader.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { ContentComponent } from './content/content.component';
 import {MatTableModule} from '@angular/material/table';
 import { FiltereddataComponent } from './filtereddata/filtereddata.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -22,17 +21,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
-
-
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
     PageheaderComponent,
-    ContentComponent,
     FiltereddataComponent,
     PaginatedDataComponent,
     FormComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +51,13 @@ import { MatNativeDateModule } from '@angular/material/core';
     ReactiveFormsModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path:'form',component:FormComponent},
+      {path:'home',component:HomeComponent},
+      {path:'',redirectTo:'/home',pathMatch:'full'}
+    ]),
     
     
 

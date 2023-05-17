@@ -10,7 +10,7 @@ export class PageheaderComponent {
 
   }
   redirectToForm(){
-    this.router.navigate(['form']);
+    this.router.navigate(['/form']);
   }
 
 }

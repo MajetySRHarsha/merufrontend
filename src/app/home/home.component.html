@@ -1,0 +1,9 @@
+<app-pageheader></app-pageheader>
+<br>
+<div  *ngIf="data.length>0">
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;Live Assignments</h2>
+<app-paginated-data [data]="data"></app-paginated-data>
+<br>
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;Expired Assignments</h2>
+<app-filtereddata [data]="data"></app-filtereddata>
+</div>
