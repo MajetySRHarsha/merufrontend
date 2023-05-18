@@ -5,5 +5,5 @@
 <app-paginated-data [data]="data"></app-paginated-data>
 <br>
 <h2>&nbsp;&nbsp;&nbsp;&nbsp;Expired Assignments</h2>
-<app-filtereddata [data]="data"></app-filtereddata>
+<app-paginated-data *ngIf="filteredData.length>0" [data]="filteredData" ></app-paginated-data>
 </div>

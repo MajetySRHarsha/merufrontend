@@ -18,13 +18,12 @@ export interface PeriodicElement {
 export class PaginatedDataComponent implements AfterViewInit,OnInit{
   @Input('data') data:[{}];
   p:any=[{}]
-  finalData:any=[{}]
   constructor(private http:HttpClient){}
   
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-  dataSource = new MatTableDataSource<PeriodicElement>(this.finalData);
+  dataSource = new MatTableDataSource<PeriodicElement>();
   ngAfterViewInit(): void {
     this.dataSource.paginator=this.paginator;
     
@@ -33,30 +32,17 @@ export class PaginatedDataComponent implements AfterViewInit,OnInit{
   
   displayedColumns: string[] = ['name', 'subject', 'startDate', 'endDate'];
  
-  filteredData:PeriodicElement[]=[];
+
   
 
   ngOnInit(){
-  //this.filteredData= this.p.filter(data=>data.weight>5);
-    
       console.log("From Paginated Child Component",this.data);
       this.p=this.data;
       console.log(this.p);
-      const currentDate = new Date(); 
-    this.filteredData= this.p.filter(data => {
-      const startDate = this.parseDate(data.startDate); 
-      const endDate = this.parseDate(data.endDate); 
-      return currentDate >= startDate && currentDate <= endDate || currentDate <= startDate && currentDate <= endDate; 
-    })
-      this.dataSource=new MatTableDataSource<PeriodicElement>(this.filteredData);
-    
- 
+      this.dataSource=new MatTableDataSource<PeriodicElement>(this.p);
   }
 
-  parseDate(dateString: string): Date {
-    const [day, month, year] = dateString.split('-').map(Number);
-    return new Date(year, month - 1, day);
-  }
+  
   
 
 

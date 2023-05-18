@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit{
   data:any=[]
+  filteredData:any=[]
   constructor(private http:HttpClient){}
   ngOnInit(): void {
     this.http.get("https://localhost:7298/api/Assignment").subscribe(data=>{
@@ -15,6 +16,11 @@ export class HomeComponent implements OnInit{
       this.data=data;
 
   });
+  this.http.get("https://localhost:7298/api/AssignmentFiltered").subscribe(data=>{
+    console.log("From Home Componenet",data);
+    this.filteredData=data;
+
+});
   }
 
 }

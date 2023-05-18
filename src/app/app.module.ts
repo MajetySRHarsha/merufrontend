@@ -9,7 +9,6 @@ import { PageheaderComponent } from './pageheader/pageheader.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
-import { FiltereddataComponent } from './filtereddata/filtereddata.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { PaginatedDataComponent } from './paginated-data/paginated-data.component';
 import { FormComponent } from './form/form.component';
@@ -28,7 +27,6 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     PageheaderComponent,
-    FiltereddataComponent,
     PaginatedDataComponent,
     FormComponent,
     HomeComponent,
